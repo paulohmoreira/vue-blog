@@ -1,10 +1,27 @@
 <template>
+  <Navigation />
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
 </template>
+
+<script>
+  import Navigation from '../src/components/NavBar.vue';
+
+  export default {
+    name: "app",
+    components: { Navigation },
+    data() {
+      return {}
+    },
+    created() {},
+    mounted() {},
+    methods: {},
+    watch: {},
+  }
+</script>
 
 <style>
 #app {
