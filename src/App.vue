@@ -1,6 +1,6 @@
 <template>
   <Navigation />
-  <nav>
+  <div class="views">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/newpost">NewPost</router-link>
@@ -14,13 +14,6 @@
   export default {
     name: "app",
     components: { Navigation },
-    data() {
-      return {}
-    },
-    created() {},
-    mounted() {},
-    methods: {},
-    watch: {},
   }
 </script>
 
@@ -33,16 +26,22 @@
   color: #2c3e50;
 }
 
-nav {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.views {
   padding: 30px;
 }
 
-nav a {
+.views a {
   font-weight: bold;
   color: #2c3e50;
 }
 
-nav a.router-link-exact-active {
+.views a.router-link-exact-active {
   color: #42b983;
 }
 </style>
