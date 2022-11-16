@@ -1,26 +1,193 @@
 <template>
-  <header>
+  <header :class="{ 'scrolled-nav': scrolledNav}">
     <nav class="nav-bar">
       <div class="logo">
         <router-link :to="{ name: 'home' }">Vue Blog</router-link>
       </div>
+      
+      <ul v-show="!mobile" class="navigation">
+        <li><router-link class="link" to="#">Home</router-link></li>
+        <li><router-link class="link" to="#">Dashboard</router-link></li>
+        <li><router-link class="link" to="#">Login/Register</router-link></li>
+      </ul>
 
-      <div class="links">
-        <ul>
-          <router-link to="#">Home</router-link>
-          <router-link to="#">Dashboard</router-link>
-          <router-link to="#">Login/Register</router-link>
-        </ul>
+      <div class="icon">
+        <img @click="toggleMobileNav" v-show="mobile" :class="{'icon-active': mobileNav}" src="../assets/icons/menu.svg" alt="Menu">
       </div>
+      
+      <transition name="mobile-nav">
+        <ul v-show="mobileNav" class="dropdown-nav">
+          <li><router-link class="link" to="#">Home</router-link></li>
+          <li><router-link class="link" to="#">Dashboard</router-link></li>
+          <li><router-link class="link" to="#">Login/Register</router-link></li>
+        </ul>
+      </transition>
     </nav>
-    <img src="../assets/icons/menu.svg" alt="Menu">
   </header>
 </template>
 
 <script>
-  export default {}
+  export default {
+    // eslint-disable-next-line vue/multi-word-component-names
+    name: "navigation",
+    data() {
+      return {
+        scrolledNav: null,
+        mobile: true,
+        mobileNav: null,
+        windowWidth: null,
+      };
+    },
+    created() {
+      window.addEventListener('resize', this.checkScreen);
+      this.checkScreen();
+    },
+    mounted() {
+      window.addEventListener('scroll', this.updateScroll)
+    },
+    methods: {
+      toggleMobileNav() {
+        this.mobileNav = !this.mobileNav;
+      },
+      updateScroll(){
+        const scrollPosition = window.screenY;
+        if (scrollPosition > 50) {
+          this.scrolledNav = true;
+          return
+        }
+        this.scrolledNav = false;
+      },
+      checkScreen() {
+        this.windowWidth = window.innerWidth;
+        if (this.windowWidth <= 750) {
+          this.mobile = true;
+          return
+        }
+        this.mobile = false;
+        this.mobileNav = false;
+      }
+    },
+  };
 </script>
 
-<style lang="css">
-  
+<style scoped>
+
+  header {
+    -webkit-box-shadow: 0px 0px 4px 0px #CCC;
+    box-shadow: 0px 0px 4px 0px #CCC;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    z-index: 99;
+    width: 100%;
+    /* position: fixed; */
+    transition: 0.5s ease all;
+    color: #fff;
+  }
+  nav.nav-bar {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    padding: .75rem 0;
+    transition: 0.5s ease all;
+    width: 90%;
+    margin: 0 auto;
+    @media (min-width: 1140px) {
+      max-width: 1140px;
+    }
+  }
+
+  ul, .link, a, a:visited {
+    font-weight: 500;
+    color: #fff;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  li {
+    text-transform: uppercase;
+    padding: 0 1rem;
+    margin-left: 1rem;
+    text-align: left;
+  }
+
+  .link {
+    font-size: .875rem;
+    transition: 0.5s ease all;
+    padding-bottom: .25rem;
+    border-bottom: 1px solid transparent;
+    
+  }
+  .link:hover {
+    color: #00afea;
+    border-color: #00afea;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 1.5rem;
+    height: 100%;
+    cursor: pointer;
+    transition: 0.5s ease all;
+  }
+
+  .icon img {
+    width: 32px;
+  }
+
+  .dropdown-nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    max-width: 250px;
+    height: 100%;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+  }
+  .dropdown-nav li {
+    margin-left: 0;
+    padding: 1rem;
+  }
+  .dropdown-nav li .link {
+    color: #000;
+  }
+
+  .mobile-nav-enter-active, .mobile-nav-leave-active {
+    transition: 1s ease all;
+  }
+  .mobile-nav-enter-from, .mobile-nav-leave-to {
+    transform: translateX(-250px);
+  }
+  .mobile-nav-enter-to {
+    transform: translateX(0);
+  }
+
+  .scrolled-nav {
+    background-color: #000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  .scrolled-nav nav {
+    padding: .5rem 0;
+  }
+  .scrolled-nav nav .logo {
+    width: 40px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
 </style>
