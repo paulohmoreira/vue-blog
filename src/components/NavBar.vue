@@ -6,7 +6,7 @@
       </div>
       
       <ul v-show="!mobile" class="navigation">
-        <li><router-link class="link" to="#">Home</router-link></li>
+        <li><router-link class="link" :to="{ name: 'home' }">Home</router-link></li>
         <li><router-link class="link" to="#">Dashboard</router-link></li>
         <li><router-link class="link" to="#">Login/Register</router-link></li>
       </ul>
@@ -17,7 +17,7 @@
       
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
-          <li><router-link class="link" to="#">Home</router-link></li>
+          <li><router-link class="link" :to="{ name: 'home' }">Home</router-link></li>
           <li><router-link class="link" to="#">Dashboard</router-link></li>
           <li><router-link class="link" to="#">Login/Register</router-link></li>
         </ul>
@@ -91,9 +91,11 @@
     transition: 0.5s ease all;
     width: 90%;
     margin: 0 auto;
-    @media (min-width: 1140px) {
+  }
+  @media screen and (min-width: 1140px) {
+    nav.nav-bar {
       max-width: 1140px;
-    }
+    }  
   }
 
   ul, .link, a, a:visited {
@@ -166,7 +168,7 @@
     padding: 1rem;
   }
   .dropdown-nav li .link {
-    color: #000;
+    color: #2c3e50;
   }
 
   .mobile-nav-enter-active, .mobile-nav-leave-active {
@@ -180,7 +182,7 @@
   }
 
   .scrolled-nav {
-    background-color: #000;
+    background-color: #2c3e50;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
   .scrolled-nav nav {
