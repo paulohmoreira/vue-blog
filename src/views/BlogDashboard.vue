@@ -8,7 +8,7 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                     Primeiro Post do Blog
                     <span class="badge badge-primary badge-pill">
-                      <router-link :to="{ path: `/posts/identificador` }" class="btn btn-primary">Editar</router-link>
+                      <router-link :to="{ path: `/editpost/identificador` }" class="btn btn-primary">Editar</router-link>
                       <a href="#" class="btn btn-danger">Apagar</a>
                     </span>
                     </li>

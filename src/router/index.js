@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import NewPost from '../views/NewPost.vue'
 import BlogDashboard from '../views/BlogDashboard.vue'
+import EditPost from '../views/EditPost.vue'
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     path: '/newpost',
     name: 'newpost',
     component: NewPost
+  },
+  {
+    path: '/editpost/:postId',
+    name: 'editpost',
+    component: EditPost
   },
   {
     path: '/about',
