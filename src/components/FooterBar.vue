@@ -4,7 +4,7 @@
       
       <router-link class="link-light text-decoration-none"  :to="{ name: 'home' }">Vue Blog</router-link>
       <div>
-        <ul class="list-unstyled text-start">
+        <ul class="list-unstyled text-start small">
           <li class="links"> 
             <a href="https://www.linkedin.com/in/pauloh-moreira/" target="_blank" class="text-decoration-none text-white"><img src="../assets/icons/icons8-linkedin.svg" alt="LinkedIn" width="24"> Paulo Moreira</a>
           </li>
@@ -15,7 +15,7 @@
       </div>
 
       <div>
-        <ul class="link-menu list-unstyled d-flex flex-column text-start">
+        <ul class="link-menu list-unstyled d-flex flex-column text-start text-uppercase small">
           <router-link class="text-decoration-none text-white" :to="{ name: 'home' }">Home</router-link>
           <router-link class="text-decoration-none text-white" to="#">Dashboard</router-link>
           <router-link class="text-decoration-none text-white" to="#">Login/Register</router-link>
@@ -24,7 +24,7 @@
       
     </div>
     <div>
-      <p class="text-white">Copyright 2022 All Rights Reserved</p>
+      <p class="text-white small">Copyright 2022 All Rights Reserved</p>
     </div>
   </footer>
 </template>
@@ -51,5 +51,11 @@
     ul.link-menu {
       flex-direction: row;
     }
+  }
+
+  @media screen and (min-width: 1140px) {
+    .footer-container {
+      max-width: 1140px;
+    }  
   }
 </style>
