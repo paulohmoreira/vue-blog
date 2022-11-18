@@ -15,13 +15,13 @@
                 </div>
                 <div class="form-group">
                     <label for="postText">Texto</label>
-                    <textarea class="form-control mb-2" id="postText" v-model="postText" rows="10"></textarea>
+                    <textarea class="form-control mb-2" id="postText" v-model="postText" rows="15"></textarea>
                 </div>
                 <!--<div class="mb-3">
-                    <label for="postImage" class="form-label">Imagem de capa</label>
-                    <input class="form-control form-control-sm" id="postImage" type="file">
+                    <label for="postCover" class="form-label">Imagem de capa</label>
+                    <input class="form-control form-control-sm" id="postCover" type="file">
                 </div>-->
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="submit" class="btn btn-success">Salvar</button>
             </form>
         </div>
     </div>
@@ -44,7 +44,7 @@ export default {
             const addedDoc = await addDoc(postsColRef, this.$data)
             alert('Post criado com sucesso!')
             console.log(addedDoc)
-            this.$router.push('/')
+            this.$router.push('/dashboard')
             
         }
     }

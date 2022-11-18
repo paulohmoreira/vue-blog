@@ -1,10 +1,5 @@
 <template>
   <Navigation />
-  <div class="views">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/newpost">NewPost</router-link>
-  </div>
   <router-view/>
   <FooterBar />
 </template>
