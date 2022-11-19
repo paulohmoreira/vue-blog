@@ -3,7 +3,7 @@
     <img :src=post.img alt="Cover photo" class="d-block rounded-top w-100">
     <div class="info d-flex flex-column h-50 text-dark py-4 px-3">
       <h4 class="pb-1 fs-5 pb-2">{{post.postTitle}}</h4>
-      <h6 class="pb-3">Posted on: Nov 18, 2022</h6>
+      <h6 class="pb-3"><DateFormatter :dateNumber=post.postDate.seconds /></h6>
       <div class="post-preview">
         <LineClamp :text=post.postText :lines="2"/>
       </div>
@@ -14,11 +14,12 @@
 
 <script>
   import LineClamp from "../components/LineClamp.vue";
+  import DateFormatter from "../components/DateFormatter.vue";
 
   export default {
     name: "blogCard",
     props: ["post"],
-    components: { LineClamp }
+    components: { LineClamp, DateFormatter },
   }
 </script>
 
