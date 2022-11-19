@@ -17,7 +17,7 @@
       <div>
         <ul class="link-menu list-unstyled d-flex flex-column text-start text-uppercase small">
           <router-link class="text-decoration-none text-white" :to="{ name: 'home' }">Home</router-link>
-          <router-link class="text-decoration-none text-white" to="#">Dashboard</router-link>
+          <router-link class="text-decoration-none text-white" :to="{ name: 'blogdashboard' }">Dashboard</router-link>
           <router-link class="text-decoration-none text-white" to="#">Login/Register</router-link>
         </ul>
       </div>

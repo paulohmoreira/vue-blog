@@ -7,7 +7,7 @@
       
       <ul v-show="!mobile" class="navigation">
         <li><router-link class="link" :to="{ name: 'home' }">Home</router-link></li>
-        <li><router-link class="link" to="#">Dashboard</router-link></li>
+        <li><router-link class="link" :to="{ name: 'blogdashboard' }">Dashboard</router-link></li>
         <li><router-link class="link" to="#">Login/Register</router-link></li>
       </ul>
 
@@ -18,7 +18,7 @@
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
           <li><router-link class="link" :to="{ name: 'home' }">Home</router-link></li>
-          <li><router-link class="link" to="#">Dashboard</router-link></li>
+          <li><router-link class="link" :to="{ name: 'blogdashboard' }">Dashboard</router-link></li>
           <li><router-link class="link" to="#">Login/Register</router-link></li>
         </ul>
       </transition>
