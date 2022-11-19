@@ -35,12 +35,15 @@ export default {
     data(){
         return {
             postTitle:null,
-            postText:null
+            postText:null,
+            postDate:null,
+            postImage:null
         }
     },
     methods: {
         async createPost(){
             console.log("Criando Post")
+            this.postDate = new Date()
             const addedDoc = await addDoc(postsColRef, this.$data)
             alert('Post criado com sucesso!')
             console.log(addedDoc)

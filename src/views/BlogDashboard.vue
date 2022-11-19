@@ -10,7 +10,7 @@
                     {{post.postTitle}}
                     <span class="badge badge-primary badge-pill">
                       <router-link :to="{ path: `/editpost/${post.id}` }" class="btn btn-outline-secondary btn-sm">Editar</router-link>
-                      <a href="#" class="btn btn-outline-danger btn-sm">Apagar</a>
+                      <a class="btn btn-outline-danger btn-sm" @click="deletePost(post.id)">Apagar</a>
                     </span>
                     </li>
                 </ul>
@@ -22,7 +22,7 @@
 
 <script>
 import postsColRef from "../firebase/firebaseInit"
-import { getDocs } from "firebase/firestore"
+import { getDocs, doc, deleteDoc } from "firebase/firestore"
 export default {
   name: "DashBoard",
   components: {},
@@ -41,6 +41,12 @@ export default {
         posts.push(postData)
       })
       this.posts = posts
+    },
+    async deletePost(postId) {
+      let postRef = doc(postsColRef, postId)
+      await deleteDoc(postRef)
+      alert('Post apagado com sucesso!')
+      this.$router.go()
     }
   },
   created() {
