@@ -17,11 +17,21 @@
                     <label for="postText">Texto</label>
                     <textarea class="form-control mb-2" id="postText" v-model="postText" rows="15"></textarea>
                 </div>
+                <div class="form-group">
+                    <input ref="imageInputFile" type="file" class="d-none" accept="image/*" @change="handleImageFile($event)">
+                    <button type="button" class="btn w-40 btn-outline-secondary" @click="selectImageFile()">Adicionar Imagem de Capa</button>
+                    <div class="handle-image mt-2" v-if="postImage">
+                        {{ `${postImage.name} -` }}
+                        <button class="btn-remove btn text-danger btn-sm" @click="postImage = null">
+                            remover
+                        </button>
+                    </div>
+                </div>
                 <!--<div class="mb-3">
                     <label for="postCover" class="form-label">Imagem de capa</label>
                     <input class="form-control form-control-sm" id="postCover" type="file">
                 </div>-->
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-success mt-2">Salvar</button>
             </form>
         </div>
     </div>
@@ -41,19 +51,27 @@ export default {
         }
     },
     methods: {
+        selectImageFile () {
+            this.$refs.imageInputFile.value = null
+            this.$refs.imageInputFile.click()
+        },
+        handleImageFile ({ target }){
+            this.postImage = target.files[0]
+        },
         async createPost(){
             console.log("Criando Post")
             this.postDate = new Date()
             const addedDoc = await addDoc(postsColRef, this.$data)
             alert('Post criado com sucesso!')
             console.log(addedDoc)
-            this.$router.push('/dashboard')
-            
+            this.$router.push('/dashboard')            
         }
     }
 }
 </script>
 
 <style>
-
+.btn-remove:hover{
+    text-decoration: underline;
+}
 </style>
