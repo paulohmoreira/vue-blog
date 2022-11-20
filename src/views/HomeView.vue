@@ -17,12 +17,6 @@ export default {
   components: { BlogCards },
   data() {
     return {
-      // sampleBlogCards: [
-      //   { postTitle: "Post Card #1", postCoverPhoto: "https://source.unsplash.com/random/?blog&1", postDate:"Nov 18, 2022" },
-      //   { postTitle: "Post Card #2", postCoverPhoto: "https://source.unsplash.com/random/?blog&2", postDate:"Nov 15, 2022" },
-      //   { postTitle: "Post Card #3", postCoverPhoto: "https://source.unsplash.com/random/?blog&3", postDate:"Out 30, 2022" },
-      //   { postTitle: "Post Card #4", postCoverPhoto: "https://source.unsplash.com/random/?blog&4", postDate:"Out 27, 2022" },
-      // ],
       posts: []
     }
   },
@@ -67,6 +61,11 @@ export default {
     .blog-cards {
       grid-template-columns: repeat(3, 1fr);
     }
+  }
+  @media screen and (min-width: 1140px) {
+    .blog-cards {
+      max-width: 1140px;
+    }  
   }
   @media screen and (min-width: 1200px){
     .blog-cards {
