@@ -156,7 +156,7 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    width: 100%;
+    width: 60%;
     max-width: 250px;
     height: 100%;
     background-color: #fff;
@@ -165,7 +165,15 @@
   }
   .dropdown-nav li {
     margin-left: 0;
+    padding: 1rem 0;
+  }
+  @media screen and (min-width: 374.9px) {
+    .dropdown-nav {
+      width: 100%;
+    }
+    .dropdown-nav li {
     padding: 1rem;
+  }  
   }
   .dropdown-nav li .link {
     color: #2c3e50;
