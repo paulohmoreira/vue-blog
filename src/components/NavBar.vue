@@ -2,13 +2,14 @@
   <header :class="{ 'scrolled-nav': scrolledNav}">
     <nav class="nav-bar">
       <div class="logo">
-        <router-link :to="{ name: 'home' }">Vue Blog</router-link>
+        <router-link :to="{ name: 'home' }"><img src="../assets/images/logo-editor.svg" alt="Vue Blog"></router-link>
       </div>
       
       <ul v-show="!mobile" class="navigation">
         <li><router-link class="link" :to="{ name: 'home' }">Home</router-link></li>
         <li><router-link class="link" :to="{ name: 'blogdashboard' }">Dashboard</router-link></li>
-        <li><router-link class="link" to="#">Login/Register</router-link></li>
+        <li><router-link class="link" v-if="$store.state.user=== null" to="/Login">Login/Register</router-link></li>
+        <button class="logout-btn" v-if="$store.state.user" @click="$store.dispatch('logout')">Sair</button>
       </ul>
 
       <div class="icon">
@@ -128,7 +129,12 @@
     display: flex;
     align-items: center;
   }
-
+  .logo img {
+    width: 200px;
+    height: 50px;
+    object-fit: cover;
+    margin-left: -60px;
+  }
 
   .navigation {
     display: flex;

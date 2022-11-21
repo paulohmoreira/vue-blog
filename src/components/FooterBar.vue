@@ -1,8 +1,7 @@
 <template>
    <footer class="p-3">
     <div class="footer-container d-flex justify-content-between align-items-center">
-      
-      <router-link class="link-light text-decoration-none"  :to="{ name: 'home' }">Vue Blog</router-link>
+      <router-link class="link-light text-decoration-none"  :to="{ name: 'home' }"><img class="logo" src="../assets/images/logo-editor.svg" alt="Vue Blog"></router-link>
       <div>
         <ul class="list-unstyled text-start small">
           <li class="links"> 
@@ -41,6 +40,13 @@
   .footer-container {
     width: 90%;
     margin: 0 auto;
+  }
+
+  img.logo {
+    width: 200px;
+    height: 50px;
+    object-fit: cover;
+    margin-left: -60px;
   }
 
   @media screen and (max-width: 576px){
