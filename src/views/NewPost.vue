@@ -17,7 +17,7 @@
                     <label for="postText">Texto</label>
                     <textarea class="form-control mb-2" id="postText" v-model="postText" rows="15"></textarea>
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                     <input ref="imageInputFile" type="file" class="d-none" accept="image/*" @change="handleImageFile($event)">
                     <button type="button" class="btn w-40 btn-outline-secondary" @click="selectImageFile()">Adicionar Imagem de Capa</button>
                     <div class="handle-image mt-2" v-if="postImage">
@@ -26,10 +26,6 @@
                             remover
                         </button>
                     </div>
-                </div>
-                <!--<div class="mb-3">
-                    <label for="postCover" class="form-label">Imagem de capa</label>
-                    <input class="form-control form-control-sm" id="postCover" type="file">
                 </div>-->
                 <button type="submit" class="btn btn-success mt-2">Salvar</button>
             </form>
@@ -50,6 +46,18 @@ export default {
             postImage:null
         }
     },
+    computed: {
+        fileName () {
+            const { postImage } = this.$data
+
+            if (postImage) {
+                const split = postImage.name.split('.')
+                return `${split[0]}-${new Date().getTime()}.${split[1]}`
+            } else {
+                return ''
+            }
+        },
+    },
     methods: {
         selectImageFile () {
             this.$refs.imageInputFile.value = null
@@ -59,13 +67,28 @@ export default {
             this.postImage = target.files[0]
         },
         async createPost(){
-            console.log("Criando Post")
-            this.postDate = new Date()
-            const addedDoc = await addDoc(postsColRef, this.$data)
-            alert('Post criado com sucesso!')
-            console.log(addedDoc)
-            this.$router.push('/dashboard')            
-        }
+            let url = ''
+
+            try {
+                if (this.postImage){
+                    const snapshot = await this.$firebase.storage()
+                        .ref(window.uid)
+                        .child(this.fileName)
+                        .put(this.postImage)
+
+                    url = await snapshot.ref.getDownloadURL()
+                }
+                this.postDate = new Date()
+                const addedDoc = await addDoc(postsColRef, this.$data)
+                alert('Post criado com sucesso!')
+                this.$router.push('/dashboard') 
+                console.log(addedDoc)                          
+            } catch (error) {
+                console.error(error)
+            } finally {
+                console.log(url)
+            }
+        },
     }
 }
 </script>

@@ -7,8 +7,18 @@
 <script>
   import Navigation from '../src/components/NavBar.vue';
   import FooterBar from '../src/components/FooterBar.vue';
+  import { onBeforeMount  } from 'vue';
+  import { useStore } from 'vuex';
 
   export default {
+    // Redirects the user to the correct page if its refresh the page
+    setup() {
+      const store = useStore()
+
+      onBeforeMount(() => {
+        store.dispatch('fetchUser')
+      })
+    },
     name: "app",
     components: { Navigation, FooterBar },
   }
