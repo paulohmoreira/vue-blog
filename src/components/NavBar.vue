@@ -7,7 +7,7 @@
       
       <ul v-show="!mobile" class="navigation">
         <li><router-link class="link" :to="{ name: 'home' }">Home</router-link></li>
-        <li><router-link class="link" :to="{ name: 'blogdashboard' }">Dashboard</router-link></li>
+        <li><router-link class="link" v-if="$store.state.user" :to="{ name: 'blogdashboard' }">Dashboard</router-link></li>
         <li><router-link class="link" v-if="$store.state.user=== null" to="/Login">Login/Register</router-link></li>
         <button class="logout-btn" v-if="$store.state.user" @click="$store.dispatch('logout')">Sair</button>
       </ul>
@@ -19,8 +19,8 @@
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
           <li><router-link class="link" :to="{ name: 'home' }">Home</router-link></li>
-          <li><router-link class="link" :to="{ name: 'blogdashboard' }">Dashboard</router-link></li>
-          <li><router-link class="link" to="#">Login/Register</router-link></li>
+          <li><router-link class="link" v-if="$store.state.user" :to="{ name: 'blogdashboard' }">Dashboard</router-link></li>
+          <li><router-link class="link" v-if="$store.state.user=== null" to="/Login">Login/Register</router-link></li>
         </ul>
       </transition>
     </nav>

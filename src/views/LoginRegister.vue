@@ -3,7 +3,7 @@
         <section class="forms">
             <div class="form-box">
                 <div class="selector-box">
-                    <div id="btn" class="btn"></div>
+                    <div id="form-btn" class="form-btn"></div>
                     <button type="button" class="toggle-btn" v-on:click="changeLogin">Login</button>
                     <button type="button" class="toggle-btn" v-on:click="changeRegister">Cadastrar</button>
                 </div>
@@ -85,16 +85,16 @@ export default {
             document.getElementById('login-form').classList.add('x-login-position');            
             document.getElementById('register-form').classList.remove('y-register-position');
             document.getElementById('register-form').classList.add('y-login-position');
-            document.getElementById('btn').classList.remove('z-register-position');
-            document.getElementById('btn').classList.add('z-login-position');
+            document.getElementById('form-btn').classList.remove('z-register-position');
+            document.getElementById('form-btn').classList.add('z-login-position');
         },
         changeRegister: function () {            
             document.getElementById('login-form').classList.remove('x-login-position');
             document.getElementById('login-form').classList.add('x-register-position');
             document.getElementById('register-form').classList.remove('y-login-position');
             document.getElementById('register-form').classList.add('y-register-position');
-            document.getElementById('btn').classList.remove('z-login-position');
-            document.getElementById('btn').classList.add('z-register-position');
+            document.getElementById('form-btn').classList.remove('z-login-position');
+            document.getElementById('form-btn').classList.add('z-register-position');
         }
     }
 }
@@ -137,7 +137,7 @@ export default {
     position: relative;
     color: white;
 }
-.btn {
+.form-btn {
     top: 0;
     position: absolute;
     width: 110px;
@@ -147,7 +147,6 @@ export default {
     transition: 0.3s;
     left: 0;
 }
-
 .login-form {
     top: 120px;
     position: absolute;
