@@ -4,12 +4,18 @@ import NewPost from '../views/NewPost.vue'
 import BlogDashboard from '../views/BlogDashboard.vue'
 import EditPost from '../views/EditPost.vue'
 import { auth } from '@/firebase/firebaseInit'
+import BlogPost from '../views/BlogPost.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/blogpost/:postId',
+    name: 'blogpost',
+    component: BlogPost
   },
   {
     path: '/newpost',

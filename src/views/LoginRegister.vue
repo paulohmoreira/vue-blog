@@ -105,9 +105,7 @@ export default {
 .login {
     height: 100%;
     width: 100%;
-    background-color: rgb(2, 38, 48);
-    background-image: linear-gradient(to top right,rgb(2, 38, 48) 0%,rgb(8, 75, 94) 100%);
-
+    background-color: rgb(243, 243, 243);
 }
 .form-box {
     width: 380px;
@@ -123,7 +121,7 @@ export default {
     width: 220px;
     margin: 35px auto;
     position: relative;
-    box-shadow: 0 0 12px 5px rgb(227, 251, 255);
+    box-shadow: 0 0 12px 5px rgb(227, 255, 248);
     border-radius: 30px;
     background-color: #999;
     font-size: 12px;
@@ -142,7 +140,7 @@ export default {
     position: absolute;
     width: 110px;
     height: 100%;
-    background: linear-gradient(to right, rgb(2, 38, 48), rgb(8, 75, 94));
+    background: linear-gradient(to right, rgb(1, 90, 48), rgb(51, 175, 117));
     border-radius: 30px;
     transition: 0.3s;
     left: 0;
@@ -178,7 +176,7 @@ export default {
     cursor: pointer;
     display: block;
     margin: 30px auto;
-    background: linear-gradient(to right, rgb(2, 38, 48), rgb(8, 75, 94));
+    background: linear-gradient(to right, rgb(1, 90, 48), rgb(51, 175, 117));
     color: white;
     border: 0;
     outline: none;

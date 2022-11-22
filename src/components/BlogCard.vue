@@ -7,7 +7,12 @@
       <div class="post-preview">
         <LineClamp :text=post.postText :lines="2"/>
       </div>
-      <router-link to="#" class="link d-inline-flex mt-auto align-items-center pt-3 pb-1 text-decoration-none text-uppercase">View the post</router-link>
+      <router-link 
+        :to="{ path: `/blogpost/${post.id}` }"
+        class="link d-inline-flex mt-auto align-items-center pt-3 
+        pb-1 text-decoration-none text-uppercase">
+        View the post
+      </router-link>
     </div>
   </div>
 </template>
