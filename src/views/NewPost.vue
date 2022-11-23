@@ -17,16 +17,14 @@
                     <label for="postText">Texto</label>
                     <textarea class="form-control mb-2" id="postText" v-model="postText" rows="15"></textarea>
                 </div>
-                <!--<div class="form-group">
-                    <input ref="imageInputFile" type="file" class="d-none" accept="image/*" @change="handleImageFile($event)">
-                    <button type="button" class="btn w-40 btn-outline-secondary" @click="selectImageFile()">Adicionar Imagem de Capa</button>
-                    <div class="handle-image mt-2" v-if="postImage">
-                        {{ `${postImage.name} -` }}
-                        <button class="btn-remove btn text-danger btn-sm" @click="postImage = null">
-                            remover
-                        </button>
+                <!-- <div class="form-group">
+                    <input ref="imageInputFile" type="file" class="w-1/2"  accept="image/*" @change="previewImage">
+                    <div class="handle-image mt-2" v-if="picture">
+                        <p>Progress: {{uploadValue.toFixed()+"%"}}</p>
+                        <img :src="picture" alt="preview">
+                        <button v-if="picture" @click="onUpload">Salvar</button>
                     </div>
-                </div>-->
+                </div> -->
                 <button type="submit" class="btn btn-success mt-2">Salvar</button>
             </form>
         </div>
@@ -37,58 +35,24 @@
 <script>
 import postsColRef from '@/firebase/firebaseInit';
 import { addDoc } from 'firebase/firestore'
+
 export default {
     data(){
-        return {
+        return {               
             postTitle:null,
             postText:null,
             postDate:null,
             postImage:null
         }
     },
-    computed: {
-        fileName () {
-            const { postImage } = this.$data
-
-            if (postImage) {
-                const split = postImage.name.split('.')
-                return `${split[0]}-${new Date().getTime()}.${split[1]}`
-            } else {
-                return ''
-            }
-        },
-    },
     methods: {
-        selectImageFile () {
-            this.$refs.imageInputFile.value = null
-            this.$refs.imageInputFile.click()
-        },
-        handleImageFile ({ target }){
-            this.postImage = target.files[0]
-        },
         async createPost(){
-            let url = ''
-
-            try {
-                if (this.postImage){
-                    const snapshot = await this.$firebase.storage()
-                        .ref(window.uid)
-                        .child(this.fileName)
-                        .put(this.postImage)
-
-                    url = await snapshot.ref.getDownloadURL()
-                }
-                this.postDate = new Date()
-                const addedDoc = await addDoc(postsColRef, this.$data)
-                alert('Post criado com sucesso!')
-                this.$router.push('/dashboard') 
-                console.log(addedDoc)                          
-            } catch (error) {
-                console.error(error)
-            } finally {
-                console.log(url)
-            }
-        },
+            this.postInfo.postDate = new Date()
+            const addedDoc = await addDoc(postsColRef, this.$data)
+            alert('Post criado com sucesso!')
+            this.$router.push('/dashboard') 
+            console.log(addedDoc)
+        }
     }
 }
 </script>

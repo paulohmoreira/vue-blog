@@ -4,6 +4,7 @@
         <small><DateFormatter :dateNumber=postInfo.postDate /></small>
         <img :src=postInfo.postImage alt="Cover photo" class="post-image">
         <div class="blog-text">{{ postInfo.postText }}</div>
+        <p>{{postInfo.postImage}}</p>
     </div>
 </template>
 
