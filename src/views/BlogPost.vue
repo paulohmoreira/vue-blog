@@ -1,7 +1,7 @@
 <template>
     <div class="post-container mt-5">
         <h3>{{ postInfo.postTitle }}</h3>
-        <small><DateFormatter :dateNumber=postInfo.postDate /></small>
+        <small><DateFormatter :dateNumber=postInfo.postDate.seconds /></small>
         <img :src=postInfo.postImage alt="Cover photo" class="post-image">
         <div class="blog-text">{{ postInfo.postText }}</div>
     </div>
@@ -49,22 +49,17 @@ export default {
 
 <style>
 .post-container {
-    box-sizing: border-box;
     width: 100vw;
-    height: 100vh;
     align-items: center;
     justify-content: center;
 }
 .post-image {
     margin: 30px 0;
-    border-radius: 10;
+    border-radius: 10px;
 }
 .blog-text {
-    position: relative;
-	width: 70%;
-    height:inherit;
-    overflow:auto;
-	margin: auto;
+	width: 950px;
+	margin: 0 auto 30px auto;
     padding: 10px;
     text-align: justify;
 }
