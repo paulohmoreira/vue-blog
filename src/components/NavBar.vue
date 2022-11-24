@@ -21,6 +21,8 @@
           <li><router-link class="link" :to="{ name: 'home' }">Home</router-link></li>
           <li><router-link class="link" v-if="$store.state.user" :to="{ name: 'blogdashboard' }">Dashboard</router-link></li>
           <li><router-link class="link" v-if="$store.state.user=== null" to="/Login">Login/Register</router-link></li>
+          <button class="logout-btn mobile" v-if="$store.state.user" @click="$store.dispatch('logout')">Sair</button>
+          <!-- <li></li> -->
         </ul>
       </transition>
     </nav>
@@ -210,5 +212,10 @@
     background: transparent;
     color: rgb(0, 255, 157);
     border: none;
+  }
+  .logout-btn.mobile {
+    padding: 1rem;
+    margin-top: -32px;
+    text-align: left;
   }
 </style>
