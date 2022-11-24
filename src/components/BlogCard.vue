@@ -1,6 +1,6 @@
 <template>
   <div class="blog-card position-relative d-flex flex-column rounded bg-white">
-    <img :src=post.img alt="Cover photo" class="d-block rounded-top w-100">
+    <img :src=post.postImage alt="Cover photo" class="d-block rounded-top w-100">
     <div class="info d-flex flex-column h-50 text-dark py-4 px-3">
       <h4 class="pb-1 fs-5 pb-2">{{post.postTitle}}</h4>
       <h6 class="pb-3"><DateFormatter :dateNumber=post.postDate.seconds /></h6>

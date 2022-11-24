@@ -27,7 +27,6 @@ export default {
       postsList.forEach((post) => {
         let postData = post.data()
         postData.id = post.id
-        postData.img = `https://source.unsplash.com/random/?blog&${post.id}`
         posts.push(postData)
       })
       this.posts = posts
