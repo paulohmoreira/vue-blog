@@ -30,6 +30,7 @@ export default {
         posts.push(postData)
       })
       this.posts = posts
+      this.posts.sort((b, a) => new Date(a.postDate.seconds) - new Date(b.postDate.seconds))
     }
   },
   created() {

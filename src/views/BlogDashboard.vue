@@ -69,4 +69,8 @@ export default {
 .btn-outline-secondary {
   margin-right: 10px;
 }
+
+.container {
+  margin: 10px 0 30px
+}
 </style>
