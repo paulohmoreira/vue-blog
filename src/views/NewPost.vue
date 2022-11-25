@@ -22,8 +22,8 @@
                     <button type="button" class="btn w-40 btn-outline-secondary" @click="selectImageFile()">Adicionar Imagem de Capa</button>
                     <div class="handle-image mt-2" v-if="file">
                         {{ `${file.name} -` }}
-                        <button class="btn-remove btn text-danger btn-sm" @click="file = null">
-                            remover
+                        <button class="btn-remove btn btn-sm" @click="file = null">
+                            <img src="../assets/icons/trash.svg" alt="Apagar Foto">
                         </button>
                     </div>
                 </div>

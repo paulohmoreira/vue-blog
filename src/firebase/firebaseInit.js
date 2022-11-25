@@ -8,12 +8,6 @@ import { collection, getFirestore } from "firebase/firestore"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    // apiKey: process.env.FIRE_API_KEY,
-    // authDomain: process.env.FIRE_AUTH,
-    // projectId: process.env.FIRE_PROJ_ID,
-    // storageBucket: process.env.FIRE_STORAGE,
-    // messagingSenderId: process.env.FIRE_MSG_ID,
-    // appId: process.env.FIRE_APP_ID
 };
 
 // Initialize Firebase
