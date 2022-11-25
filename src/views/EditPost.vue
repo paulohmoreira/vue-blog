@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                     <div>
-                        <img :src=postInfo.postImage alt="Cover photo" class="post-image">
+                        <img :src=postInfo.postImage alt="Cover photo" class="edit-post-image">
                     </div>
                     <input ref="imageInputFile" type="file" class="d-none" accept="image/*" @change="handleImageFile($event)">
                     <button type="button" class="btn w-40 btn-outline-secondary" @click="selectImageFile()">Mudar Imagem de Capa</button>
@@ -144,8 +144,7 @@ export default {
 </script>
 
 <style>
-.post-image{
+.edit-post-image{
     width: 200px;
 }
-
 </style>
