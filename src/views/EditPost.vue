@@ -147,4 +147,7 @@ export default {
 .edit-post-image{
     width: 200px;
 }
+.container {
+    margin: 0;
+}
 </style>
