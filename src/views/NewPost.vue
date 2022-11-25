@@ -11,11 +11,12 @@
                         id="postTitle"
                         placeholder="Título..."
                         v-model="postTitle"
+                        required
                     />
                 </div>
                 <div class="form-group">
                     <label for="postText">Texto</label>
-                    <textarea class="form-control mb-2" id="postText" v-model="postText" rows="15"></textarea>
+                    <textarea class="form-control mb-2" id="postText" v-model="postText" rows="15" required></textarea>
                 </div>
                 <div class="form-group">
                     <input ref="imageInputFile" type="file" class="d-none" accept="image/*" @change="handleImageFile($event)">
@@ -44,6 +45,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 export default {
     data(){
         return {
+            storageRef:null,
             postTitle:null,
             postText:null,
             postDate:null,
@@ -78,8 +80,12 @@ export default {
                 contentType: 'image/*'
             };
 
-            const storageRef = ref(storage, 'images/' + this.file.name);
-            const uploadTask = uploadBytesResumable(storageRef, this.file, metadata);
+            if(this.file){
+                this.storageRef = ref(storage, 'images/' + this.file.name);
+            } else {
+                alert('Adicione uma imagem!')
+            }
+            const uploadTask = uploadBytesResumable(this.storageRef, this.file, metadata);
 
             uploadTask.on('state_changed',
                 (snapshot) => {
