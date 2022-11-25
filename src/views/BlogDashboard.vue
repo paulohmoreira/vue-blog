@@ -1,7 +1,7 @@
 <template>
   <div class="postList">
     <router-link to="/newpost"><button class="btn btn-primary btn-lg btn-new">Novo Post</button></router-link>    
-    <div class="container">
+    <div>
         <h3>Posts</h3>
         <div class="row">
             <div class="col-md-6 offset-md-3">

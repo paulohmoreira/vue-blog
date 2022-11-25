@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="my-4">
         <div class="col-md-6 offset-md-3">
             <h3>Editar Post</h3>
             <form @submit.prevent="updatePost">
@@ -30,7 +30,7 @@
                         </button>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-success my-4">Salvar</button>
             </form>
         </div>
     </div>

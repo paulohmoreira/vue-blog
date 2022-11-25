@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="my-4">
         <div class="col-md-6 offset-md-3">
             <h3>Novo Post</h3>
             <form @submit.prevent="createPost">
@@ -28,7 +28,7 @@
                         </button>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success mt-2">Salvar</button>
+                <button type="submit" class="btn btn-success my-4">Salvar</button>
             </form>
         </div>
     </div>
