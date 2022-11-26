@@ -8,6 +8,8 @@
 
 # Vue Blog
 
+![VueBlog](https://media2.giphy.com/media/Sg2yjJ82MLDuQo8VkA/giphy.gif?cid=790b7611d46ad9770b6cd4b08b33da630e9bf25e2fae8c1c&rid=giphy.gif&ct=g)
+
 Um projeto de [Paulo Moreira](https://github.com/paulohmoreira) e [Alexandre Cavalcanti](https://github.com/alexandremcs).
 
 O objetivo deste projeto era vivenciar o dia a dia de um desenvolvedor trabalhando em equipe e desenvolver um blog utilizando o Vue.js e o [Firebase](https://firebase.google.com/?gclid=EAIaIQobChMI4Iew8KrJ-wIVFSeRCh2tkwANEAAYASAAEgK-JPD_BwE&gclsrc=aw.ds) 
@@ -59,9 +61,9 @@ Bom, agora na mesma tela do cmd, basta iniciar o server para o projeto ser execu
 ```bash
 > npm run serve
 ```
-## Demo da Aplicação (Offline) ⭐️
+## Demo da Aplicação (Online) ⭐️
 
-Para visualizar a demo da aplicação na nuvem, bastam acessar o link **[AQUI]()**.
+Para visualizar a demo da aplicação na nuvem, bastam acessar o link **[AQUI](https://zesty-smakager-b23d25.netlify.app/)**.
 
 
 ## Tenho Dúvidas... O que Faço?! ❓
